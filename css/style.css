@@ -130,8 +130,16 @@ body {
     font-size: clamp(3rem, 8vw, 5rem);
     font-weight: 700;
     letter-spacing: 0.05em;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
     color: var(--color-text);
+}
+
+.hero-credentials {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0.2em;
+    margin-bottom: 16px;
+    font-weight: 400;
 }
 
 .hero-subtitle {
