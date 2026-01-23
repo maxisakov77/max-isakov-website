@@ -924,3 +924,237 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+/* ========================================
+   PROJECT DETAIL PAGES
+   ======================================== */
+
+.project-hero {
+    padding: 120px 24px 60px;
+    background: var(--color-bg-light);
+    text-align: center;
+}
+
+.project-hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.back-link {
+    display: inline-block;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+    transition: var(--transition);
+}
+
+.back-link:hover {
+    color: var(--color-primary);
+}
+
+.project-hero h1 {
+    font-size: 2.75rem;
+    margin-bottom: 16px;
+}
+
+.project-subtitle {
+    font-size: 1.2rem;
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.project-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 24px;
+    background: var(--color-bg-light);
+    padding: 32px;
+    border-radius: 12px;
+    margin-bottom: 32px;
+}
+
+.meta-item {
+    text-align: center;
+}
+
+.meta-item strong {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+}
+
+.meta-item span {
+    font-size: 1rem;
+    color: var(--color-text);
+}
+
+.project-gallery {
+    margin: 32px 0;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.feature-item {
+    background: var(--color-bg-light);
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+}
+
+.feature-item h4 {
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    color: var(--color-primary);
+}
+
+.feature-item p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* ========================================
+   CITY OF YES PAGE
+   ======================================== */
+
+.city-of-yes-header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #ffffff;
+}
+
+.city-of-yes-header h1 {
+    color: #ffffff;
+}
+
+.city-of-yes-header p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.highlight-section {
+    background: var(--color-bg-light);
+    padding: 48px;
+    border-radius: 16px;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+}
+
+.tool-card {
+    background: var(--color-bg);
+    padding: 32px;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    transition: var(--transition);
+}
+
+.tool-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.tool-icon {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+}
+
+.tool-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+}
+
+.tool-card p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.benefit-item {
+    background: var(--color-bg-light);
+    padding: 24px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.benefit-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: var(--color-primary);
+}
+
+.benefit-item p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.process-steps {
+    margin-top: 32px;
+}
+
+.process-step {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 32px;
+    align-items: flex-start;
+}
+
+.step-number {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    background: var(--color-primary);
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.step-content h4 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.step-content p {
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .project-hero h1 {
+        font-size: 2rem;
+    }
+
+    .project-meta-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .highlight-section {
+        padding: 32px 24px;
+    }
+
+    .process-step {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+}
