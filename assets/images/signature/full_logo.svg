@@ -1,5 +1,5 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="100%" viewBox="0 0 1024 800" enable-background="new 0 0 1024 800" xml:space="preserve">
+	 width="100%" viewBox="0 0 1024 854" enable-background="new 0 0 1024 854" xml:space="preserve">
 <path fill="#000000" opacity="1.000000" stroke="none" 
 	d="
 M70.421249,529.678406 
@@ -84,5 +84,5 @@ M70.421249,529.678406
 	C99.135689,393.779419 88.321068,423.430420 80.721642,454.240906 
 	C74.631683,478.931580 70.567871,503.770660 70.421249,529.678406 
 z"/>
-<text x="530" y="740" font-family="sans-serif" font-size="120" textLength="965" lengthAdjust="spacing" fill="#71717A" text-anchor="middle">MAX AEC LLC</text>
+<text x="530" y="784" font-family="Arial, Helvetica, sans-serif" font-size="150" textLength="966" lengthAdjust="spacing" fill="#71717A" text-anchor="middle">MAX AEC LLC</text>
 </svg>
