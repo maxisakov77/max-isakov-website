@@ -67,23 +67,36 @@ body {
 .logo {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     color: var(--color-text);
     text-decoration: none;
 }
 
-.brand-lockup img {
-    width: 34px;
-    height: 34px;
+.brand-mark {
     display: block;
+    height: auto;
+    flex-shrink: 0;
 }
 
-.brand-lockup span {
+.brand-lockup .brand-mark {
+    width: 48px;
+}
+
+.brand-divider {
+    width: 2px;
+    height: 26px;
+    background: #1a1a2e;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.brand-wordmark {
     font-size: 0.92rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
+    font-weight: 400;
+    letter-spacing: 0.09em;
     white-space: nowrap;
-    color: var(--color-text);
+    color: #6b7280;
+    line-height: 1;
 }
 
 .nav-menu {
@@ -448,21 +461,22 @@ footer {
 .footer-lockup {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     text-decoration: none;
     color: var(--color-text);
     margin-bottom: 8px;
 }
 
-.footer-lockup img {
-    width: 34px;
-    height: 34px;
+.footer-lockup .brand-mark {
+    width: 56px;
 }
 
-.footer-lockup span {
+.footer-lockup .brand-divider {
+    height: 30px;
+}
+
+.footer-lockup .brand-wordmark {
     font-size: 0.95rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
 }
 
 .brand-tagline {
@@ -598,6 +612,22 @@ footer {
    RESPONSIVE
    ======================================== */
 
+@media (max-width: 1280px) {
+    .nav-menu {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .nav-menu {
+        gap: 16px;
+    }
+
+    .nav-menu a {
+        font-size: 0.86rem;
+    }
+}
+
 @media (max-width: 768px) {
     .nav-toggle {
         display: flex;
@@ -634,9 +664,29 @@ footer {
         justify-content: center;
     }
 
-    .brand-lockup span {
-        font-size: 0.82rem;
-        letter-spacing: 0.08em;
+    .brand-lockup .brand-mark {
+        width: 42px;
+    }
+
+    .brand-lockup .brand-divider {
+        height: 22px;
+    }
+
+    .brand-lockup .brand-wordmark {
+        font-size: 0.8rem;
+        letter-spacing: 0.07em;
+    }
+
+    .footer-lockup .brand-mark {
+        width: 50px;
+    }
+
+    .footer-lockup .brand-divider {
+        height: 24px;
+    }
+
+    .footer-lockup .brand-wordmark {
+        font-size: 0.86rem;
     }
 
     .hero-image {
