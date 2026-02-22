@@ -26,13 +26,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Form submission handler
+// Contact form: allow native Formspree POST when configured.
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        // Add your form handling logic here
-        alert('Thank you for your message! I will get back to you soon.');
-        this.reset();
-    });
+    const formAction = contactForm.getAttribute('action') || '';
+    const hasPlaceholderFormId = formAction.includes('REPLACE_WITH_REAL_FORM_ID') || formAction.includes('YOUR_FORM_ID');
+
+    if (hasPlaceholderFormId) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Contact form is not configured yet. Replace REPLACE_WITH_REAL_FORM_ID in contact.html.');
+        });
+    }
 }
