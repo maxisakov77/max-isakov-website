@@ -25,7 +25,8 @@ This runbook defines how `maxaec.com` is maintained and published from VS Code.
 - [ ] Mobile nav toggle opens/closes correctly.
 - [ ] Updated pages render correctly.
 - [ ] Browser console has no missing asset errors.
-- [ ] Contact form endpoint is correctly configured (no placeholder Formspree ID).
+- [ ] Email CTA opens default mail client with recipient `info@maxaec.com`.
+- [ ] Email CTA includes subject `Project Inquiry from maxaec.com`.
 
 ## 4) Publish Steps
 
@@ -43,7 +44,7 @@ Vercel will auto-deploy from `master`.
 - [ ] `https://maxaec.com` serves updated content.
 - [ ] `https://www.maxaec.com` serves updated content.
 - [ ] SSL lock is valid.
-- [ ] Contact form submission succeeds and is received in Formspree/email.
+- [ ] Contact details and email CTA are accurate on desktop and mobile.
 
 ## 6) Rollback
 

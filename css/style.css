@@ -511,48 +511,39 @@ footer {
 }
 
 /* ========================================
-   CONTACT FORM
+   CONTACT PAGE
    ======================================== */
 
-.contact-form {
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1000px;
+}
+
+.contact-cta-card {
     max-width: 600px;
     margin: 0 auto;
-}
-
-.form-group {
-    margin-bottom: 24px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 14px 16px;
     background: var(--color-bg-card);
     border: 1px solid var(--color-border);
-    border-radius: 8px;
-    color: var(--color-text);
-    font-family: inherit;
-    font-size: 1rem;
-    transition: var(--transition);
+    border-radius: 16px;
+    padding: 32px;
 }
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--color-primary);
+.contact-cta-card h2 {
+    color: var(--color-primary);
+    margin-bottom: 16px;
 }
 
-.form-group textarea {
-    min-height: 150px;
-    resize: vertical;
+.contact-cta-text {
+    color: var(--color-text-muted);
+    margin-bottom: 24px;
+    line-height: 1.8;
+}
+
+.contact-cta-card .btn {
+    width: 100%;
+    text-align: center;
 }
 
 /* ========================================
@@ -601,6 +592,15 @@ footer {
 
     .services-grid {
         grid-template-columns: 1fr;
+    }
+
+    .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .contact-cta-card {
+        max-width: none;
     }
 
     .footer-content {

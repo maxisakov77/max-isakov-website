@@ -41,12 +41,12 @@ Static HTML/CSS/JS site for `maxaec.com`.
    - `https://maxaec.com`
    - `https://www.maxaec.com`
 
-## Contact Form (Formspree)
+## Contact Method
 
-- Contact form source: `contact.html`
-- Endpoint pattern: `https://formspree.io/f/<FORM_ID>`
-- Current placeholder: `REPLACE_WITH_REAL_FORM_ID`
-- After replacing with a real Formspree ID, submissions post directly (no JS interception).
+- No third-party form backend is used.
+- Contact uses a direct email CTA:
+  - `mailto:info@maxaec.com?subject=Project%20Inquiry%20from%20maxaec.com`
+- Keep contact details and CTA copy current in `contact.html`.
 
 ## Maintenance Runbook
 
