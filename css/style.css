@@ -1,5 +1,5 @@
 /* ========================================
-   MAX ISAKOV ARCHITECTURE - Main Stylesheet
+   MAX AEC LLC - Main Stylesheet
    ======================================== */
 
 :root {
@@ -65,17 +65,31 @@ body {
 }
 
 .logo {
-    font-size: 1.25rem;
-    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     color: var(--color-text);
     text-decoration: none;
-    letter-spacing: 0.1em;
+}
+
+.brand-lockup img {
+    width: 34px;
+    height: 34px;
+    display: block;
+}
+
+.brand-lockup span {
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    white-space: nowrap;
+    color: var(--color-text);
 }
 
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 40px;
+    gap: 26px;
 }
 
 .nav-menu a {
@@ -154,6 +168,14 @@ body {
     color: var(--color-text-muted);
     margin-bottom: 32px;
     max-width: 500px;
+}
+
+.hero-brand-tagline {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
 }
 
 .hero-buttons {
@@ -423,6 +445,32 @@ footer {
     color: var(--color-text-muted);
 }
 
+.footer-lockup {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--color-text);
+    margin-bottom: 8px;
+}
+
+.footer-lockup img {
+    width: 34px;
+    height: 34px;
+}
+
+.footer-lockup span {
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+}
+
+.brand-tagline {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
 .footer-contact a {
     color: var(--color-text-muted);
     text-decoration: none;
@@ -584,6 +632,11 @@ footer {
 
     .hero-buttons {
         justify-content: center;
+    }
+
+    .brand-lockup span {
+        font-size: 0.82rem;
+        letter-spacing: 0.08em;
     }
 
     .hero-image {
