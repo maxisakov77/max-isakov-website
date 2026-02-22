@@ -7,7 +7,7 @@
     "test:site": "playwright test",
     "test:site:headed": "playwright test --headed",
     "test:site:prod": "cross-env BASE_URL=https://www.maxaec.com playwright test",
-    "test:site:ci": "playwright test --reporter=line,html",
+    "test:site:ci": "cross-env PLAYWRIGHT_HTML_OUTPUT_DIR=output/playwright/report playwright test --reporter=line,html",
     "test:site:report": "playwright show-report output/playwright/report"
   },
   "devDependencies": {
