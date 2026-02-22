@@ -1,0 +1,17 @@
+{
+  "name": "maxaec-site-checks",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Playwright automation suite for maxaec.com",
+  "scripts": {
+    "test:site": "playwright test",
+    "test:site:headed": "playwright test --headed",
+    "test:site:prod": "cross-env BASE_URL=https://www.maxaec.com playwright test",
+    "test:site:ci": "playwright test --reporter=line,html",
+    "test:site:report": "playwright show-report output/playwright/report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.54.2",
+    "cross-env": "^7.0.3"
+  }
+}
