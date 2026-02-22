@@ -8,6 +8,17 @@ export interface CrawlOptions {
   maxPages: number;
 }
 
+const EXCLUDED_PATH_PREFIXES = ['/admin'];
+
+function isExcludedUrl(url: string): boolean {
+  try {
+    const parsed = new URL(url);
+    return EXCLUDED_PATH_PREFIXES.some((prefix) => parsed.pathname === prefix || parsed.pathname.startsWith(`${prefix}/`));
+  } catch {
+    return false;
+  }
+}
+
 export async function crawlSite(
   context: BrowserContext,
   options: CrawlOptions,
@@ -28,6 +39,10 @@ export async function crawlSite(
 
     enqueued.delete(targetUrl);
     if (visited.has(targetUrl)) {
+      continue;
+    }
+
+    if (isExcludedUrl(targetUrl)) {
       continue;
     }
 
@@ -86,6 +101,10 @@ export async function crawlSite(
       try {
         const normalized = normalizeUrl(href, targetUrl);
         if (!isSameOrigin(normalized, baseOrigin)) {
+          continue;
+        }
+
+        if (isExcludedUrl(normalized)) {
           continue;
         }
 
