@@ -1078,6 +1078,229 @@ footer {
 }
 
 /* ========================================
+   COMPLIANCE PAGE
+   ======================================== */
+
+.compliance-penalties {
+    padding: 0 24px 60px;
+    text-align: center;
+}
+
+.compliance-penalties h2 {
+    font-size: 1.75rem;
+    margin-bottom: 12px;
+    color: var(--color-primary);
+}
+
+.section-lead {
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+    max-width: 650px;
+    margin: 0 auto 32px;
+    line-height: 1.7;
+}
+
+.penalty-table-wrap {
+    max-width: 700px;
+    margin: 0 auto;
+    overflow-x: auto;
+}
+
+.penalty-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.penalty-table th,
+.penalty-table td {
+    text-align: left;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.penalty-table thead th {
+    font-weight: 600;
+    color: var(--color-primary);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background: var(--color-bg-light);
+}
+
+.penalty-table tbody td:last-child {
+    color: #b91c1c;
+    font-weight: 600;
+}
+
+.compliance-services {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.section-heading {
+    font-size: 1.75rem;
+    margin-bottom: 40px;
+    color: var(--color-primary);
+    text-align: center;
+}
+
+.compliance-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 36px 32px;
+    margin-bottom: 32px;
+    transition: var(--transition);
+}
+
+.compliance-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.compliance-card h3 {
+    font-size: 1.35rem;
+    margin-bottom: 6px;
+    color: var(--color-primary);
+}
+
+.compliance-law {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0.04em;
+    margin-bottom: 16px !important;
+}
+
+.compliance-card > p {
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    margin-bottom: 24px;
+}
+
+.compliance-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 32px;
+}
+
+.compliance-detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.compliance-detail-item strong {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+}
+
+.compliance-detail-item span {
+    font-size: 0.95rem;
+    color: var(--color-text);
+    line-height: 1.5;
+}
+
+.compliance-detail-item a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.compliance-detail-item a:hover {
+    text-decoration: underline;
+}
+
+.compliance-advantage {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 0;
+}
+
+.advantage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+}
+
+.advantage-item {
+    background: var(--color-bg-light);
+    padding: 28px 24px;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+}
+
+.advantage-item h4 {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+    color: var(--color-primary);
+}
+
+.advantage-item p {
+    font-size: 0.92rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin: 0;
+}
+
+.compliance-volume {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 0 60px;
+    text-align: center;
+}
+
+.volume-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.volume-tier {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: var(--transition);
+}
+
+.volume-tier:hover {
+    border-color: var(--color-primary);
+}
+
+.volume-range {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--color-primary);
+}
+
+.volume-discount {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+}
+
+@media (max-width: 768px) {
+    .compliance-details {
+        grid-template-columns: 1fr;
+    }
+
+    .volume-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .advantage-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========================================
    PROJECT DETAIL PAGES
    ======================================== */
 
