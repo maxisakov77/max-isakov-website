@@ -5,7 +5,7 @@ import { crawlSite } from './helpers/crawler';
 import { normalizeUrl } from './helpers/normalize';
 import { writeSeoWarningArtifacts } from './helpers/reporting';
 
-const DEFAULT_BASE_URL = 'http://127.0.0.1:5500';
+const DEFAULT_BASE_URL = 'http://127.0.0.1:3000';
 const DEFAULT_MAX_CRAWL_PAGES = 200;
 
 function parseMaxPages(): number {

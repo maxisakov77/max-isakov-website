@@ -1,6 +1,6 @@
 # Max AEC Website
 
-Static HTML/CSS/JS site for `maxaec.com`.
+Next.js website for `maxaec.com`.
 
 ## Production Setup
 
@@ -8,26 +8,27 @@ Static HTML/CSS/JS site for `maxaec.com`.
 - Domains: `maxaec.com`, `www.maxaec.com`
 - Source repo: `https://github.com/maxisakov77/max-isakov-website.git`
 - Production branch: `master`
-- Custom domain file: `CNAME`
 
 ## Project Files
 
-- `index.html`, `services.html`, `portfolio.html`, `contact.html`, etc.: page content
-- `css/style.css`: global styling
-- `js/main.js`: shared client-side behavior
-- `assets/`: images and static assets
-- `CNAME`: custom domain (`maxaec.com`)
+- `app/`: Next.js App Router pages and API routes
+- `components/`: shared React components (Navbar, Footer, etc.)
+- `public/`: images and static assets
+- `app/globals.css`: global styling
+- `next.config.ts`: redirects, security headers
+- `middleware.ts`: admin route protection
 
-## VS Code Workflow
+## Local Development
 
-1. Open `website/` as the workspace root.
-2. Pull latest:
-   - `git pull origin master`
-3. Preview locally:
-   - `python -m http.server 5500`
-   - Open `http://localhost:5500`
-4. Edit files as needed.
-5. Validate key pages and navigation.
+1. Install dependencies:
+   - `npm install`
+   - `npx playwright install chromium`
+2. Start dev server:
+   - `npm run dev`
+   - Open `http://localhost:3000`
+3. Edit files as needed.
+4. Run checks:
+   - `npm run test:site`
 
 ## Publishing (Git Push -> Vercel Auto Deploy)
 
@@ -46,7 +47,7 @@ Static HTML/CSS/JS site for `maxaec.com`.
 - No third-party form backend is used.
 - Contact uses a direct email CTA:
   - `mailto:info@maxaec.com?subject=Project%20Inquiry%20from%20maxaec.com`
-- Keep contact details and CTA copy current in `contact.html`.
+- Keep contact details and CTA copy current in `app/contact/page.tsx`.
 
 ## Maintenance Runbook
 

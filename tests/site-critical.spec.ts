@@ -4,7 +4,7 @@ import type { SiteAuditSummary } from './helpers/contracts';
 import { crawlSite } from './helpers/crawler';
 import { writeCriticalSummary } from './helpers/reporting';
 
-const DEFAULT_BASE_URL = 'http://127.0.0.1:5500';
+const DEFAULT_BASE_URL = 'http://127.0.0.1:3000';
 const DEFAULT_MAX_CRAWL_PAGES = 200;
 const DEFAULT_ALLOWLIST_PATTERNS = 'favicon\\.ico';
 

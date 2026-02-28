@@ -7,7 +7,7 @@ This runbook defines how `maxaec.com` is maintained and published from VS Code.
 - Repo: `https://github.com/maxisakov77/max-isakov-website.git`
 - Branch: `master` is production
 - Host: Vercel
-- Domain: `maxaec.com` (see `CNAME`)
+- Domain: `maxaec.com`
 
 ## 2) Local Workflow
 
@@ -17,10 +17,10 @@ This runbook defines how `maxaec.com` is maintained and published from VS Code.
 3. Install dependencies (first run or after dependency updates):
    - `npm install`
    - `npx playwright install chromium`
-4. Start local preview server:
-   - `python -m http.server 5500`
+4. Start local dev server:
+   - `npm run dev`
 5. Preview at:
-   - `http://localhost:5500`
+   - `http://localhost:3000`
 6. In a second terminal, run automation checks:
    - `npm run test:site`
 
@@ -91,7 +91,7 @@ If a bad change reaches production:
 
 ### Environment Variables
 
-- `BASE_URL` (default: `http://127.0.0.1:5500`)
+- `BASE_URL` (default: `http://127.0.0.1:3000`)
 - `MAX_CRAWL_PAGES` (default: `200`)
 - `ALLOW_CONSOLE_ERROR_PATTERNS` (default includes `favicon.ico` pattern)
 
