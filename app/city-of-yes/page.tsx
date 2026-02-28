@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 import PageHeader from '@/components/PageHeader';
 import ContactCta from '@/components/ContactCta';
@@ -41,6 +42,12 @@ export default function CityOfYesPage() {
       />
 
       <main className="page-content">
+        <section className="content-section" style={{ paddingBottom: 0 }}>
+          <p style={{ fontSize: '0.95rem', color: 'var(--color-text-muted)' }}>
+            <Link href="/services/residential">← Residential &amp; Commercial Services</Link>
+          </p>
+        </section>
+
         <section className="content-section">
           <h2>The Core Problem</h2>
           <p>

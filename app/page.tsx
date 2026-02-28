@@ -2,15 +2,15 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'MAX AEC LLC | Development Architecture, Engineering & Consulting',
+  title: 'MAX AEC LLC | NYC Architecture, Compliance & Government Advisory',
   description:
-    'MAX AEC LLC provides residential & commercial architecture services for NYC developers, plus government & institutional advisory with 60+ combined years of public-sector experience.',
+    'NYC architecture firm serving two markets: residential & commercial development with flat-fee compliance filings, and government & institutional advisory with 60+ combined years of justice architecture experience.',
   alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
-    title: 'MAX AEC LLC | Development Architecture, Engineering & Consulting',
+    title: 'MAX AEC LLC | NYC Architecture, Compliance & Government Advisory',
     description:
-      'Company-led architecture, City of Yes feasibility, and institutional advisory services from MAX AEC LLC.',
+      'Residential & commercial architecture, building compliance, and government institutional advisory from MAX AEC LLC.',
     url: '/',
     images: '/images/signature/mark_only.png',
   },
@@ -31,7 +31,7 @@ export default function HomePage() {
             logo: 'https://www.maxaec.com/images/signature/mark_only.png',
             email: 'info@maxaec.com',
             description:
-              'MAX AEC LLC provides development architecture, City of Yes feasibility, and institutional advisory services.',
+              'NYC architecture firm serving residential & commercial development and government & institutional advisory markets.',
           }),
         }}
       />
@@ -48,32 +48,36 @@ export default function HomePage() {
             height={196}
             style={{ maxWidth: '100%', height: 'auto', marginBottom: '2rem' }}
           />
-          <p className="hero-brand-tagline">Architecture · Engineering · Consulting</p>
+          <p className="hero-brand-tagline">Architecture · Compliance · Advisory</p>
           <p className="hero-subtitle">
-            We help NYC developers, property owners, and public-sector teams move from zoning
-            questions to buildable project decisions.
+            Two markets. One standard of execution.
           </p>
           <p className="hero-tagline">
-            Our work combines feasibility rigor, code compliance, and coordinated documentation so
-            projects advance with fewer downstream surprises.
+            We serve NYC property owners and developers who need fast, code-compliant architecture
+            and compliance filings — and government agencies nationwide that need justice and
+            institutional design expertise backed by 60+ combined years of delivery.
           </p>
           <div className="hero-buttons">
-            <Link href="/contact" className="btn btn-primary">
-              Contact Our Team
+            <Link href="/services/residential" className="btn btn-primary">
+              Residential &amp; Commercial
+            </Link>
+            <Link href="/services/government" className="btn btn-outline">
+              Government &amp; Institutional
             </Link>
           </div>
         </div>
       </section>
 
+      {/* ── Two Markets ── */}
       <section className="services-overview">
         <div className="container">
-          <h2>Two Markets. One Standard.</h2>
+          <h2>How We Work</h2>
           <div className="services-grid">
             <Link href="/services/residential" className="service-card" style={{ textDecoration: 'none', color: 'inherit' }}>
               <h3>Residential &amp; Commercial</h3>
               <p>
-                Development architecture, City of Yes feasibility, and flat-fee building
-                compliance services for NYC property owners, developers, and general
+                Development architecture, City of Yes feasibility, and flat-fee building compliance
+                filings for NYC property owners, developers, portfolio managers, and general
                 contractors.
               </p>
               <span className="link-arrow">View services →</span>
@@ -81,9 +85,9 @@ export default function HomePage() {
             <Link href="/services/government" className="service-card" style={{ textDecoration: 'none', color: 'inherit' }}>
               <h3>Government &amp; Institutional</h3>
               <p>
-                Justice architecture and institutional advisory backed by over 60
-                combined years of public-sector delivery across hundreds of projects
-                nationwide.
+                Justice architecture, behavioral health, courthouses, and civic facility design.
+                Over 60 combined years and hundreds of projects across federal, state, county, and
+                tribal agencies.
               </p>
               <span className="link-arrow">View services →</span>
             </Link>
@@ -91,75 +95,54 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="featured-projects">
+      {/* ── Compliance callout ── */}
+      <section className="about-teaser">
         <div className="container">
-          <h2>Selected Case Studies</h2>
-          <div className="projects-grid">
-            <Link href="/projects/bbj" className="project-card">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/squarespace/bbj_render.jpg"
-                alt="NYC Borough-Based Jails rendering"
-                className="project-image"
-                width={900}
-                height={640}
-                loading="lazy"
-              />
-              <h4>NYC Borough-Based Jails</h4>
-              <p>Humane high-rise detention delivery for four boroughs.</p>
-            </Link>
-            <Link href="/projects/baltimore" className="project-card">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/baltimore_placeholder.png"
-                alt="Baltimore Therapeutic Treatment Center"
-                className="project-image"
-                width={900}
-                height={640}
-                loading="lazy"
-              />
-              <h4>Baltimore Therapeutic Treatment Center</h4>
-              <p>Secure behavioral health planning with BIM-led coordination.</p>
-            </Link>
-            <Link href="/projects/macomb" className="project-card">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/squarespace/macomb_render.jpg"
-                alt="Macomb County Intake Center"
-                className="project-image"
-                width={900}
-                height={640}
-                loading="lazy"
-              />
-              <h4>Macomb County Intake Center</h4>
-              <p>Justice expansion focused on intake operations and mental health support.</p>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section id="about-company" className="about-teaser" style={{ scrollMarginTop: '96px' }}>
-        <div className="container">
-          <blockquote>
-            &ldquo;Project decisions should hold up in reality, not just on paper.&rdquo;
-          </blockquote>
+          <h2 style={{ fontSize: '2rem', fontStyle: 'normal', marginBottom: '16px' }}>
+            Building Compliance — Filed by a Registered Architect
+          </h2>
           <p>
-            MAX AEC LLC delivers company-led architecture services that combine development
-            strategy, technical execution, and consultant coordination. Our team supports both
-            private development and high-accountability institutional programs.
+            Flat-fee parapet observations, LL152 no-gas certs, LL88 lighting and sub-metering
+            attestations, LL97 Article 321 prescriptive carbon compliance, and Tenant Protection
+            Plans. Site visit, documentation, sign-and-seal, and DOB / BEAM portal filing included.
           </p>
-          <Link href="/team" className="btn btn-outline">
-            Meet the Team
+          <Link href="/compliance" className="btn btn-primary">
+            View Compliance Services
           </Link>
         </div>
       </section>
 
+      {/* ── Credentials ── */}
+      <section className="services-overview" style={{ background: 'var(--color-bg)' }}>
+        <div className="container">
+          <h2>Why MAX AEC</h2>
+          <div className="services-grid">
+            <div className="service-card" style={{ textAlign: 'center' }}>
+              <h3>13+ Years</h3>
+              <p>Max Isakov, RA, AIA, NCARB — leads design execution, BIM, and technical delivery across residential and institutional projects.</p>
+            </div>
+            <div className="service-card" style={{ textAlign: 'center' }}>
+              <h3>50+ Years</h3>
+              <p>Peter C. Krasnow, FAIA — senior justice advisor with five decades of detention, courthouse, and behavioral health leadership.</p>
+            </div>
+            <div className="service-card" style={{ textAlign: 'center' }}>
+              <h3>Flat-Fee Pricing</h3>
+              <p>No hourly billing. Every compliance filing and feasibility scope is quoted upfront as a fixed number.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
       <section className="contact-cta">
         <div className="container">
-          <h2>Ready to Move a Project Forward?</h2>
-          <p>Share your site, program, and timeline. Our team will outline a clear next-step scope.</p>
+          <h2>Start a Conversation</h2>
+          <p>
+            Whether you need a compliance filing next week or a justice facility advisory team for
+            the next three years — share your project and we&apos;ll outline the right scope.
+          </p>
           <Link href="/contact" className="btn btn-primary">
-            Contact
+            Contact Us
           </Link>
         </div>
       </section>

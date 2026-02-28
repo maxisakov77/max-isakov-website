@@ -1,16 +1,18 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 import PageHeader from '@/components/PageHeader';
 
 export const metadata: Metadata = {
   title: 'Contact | MAX AEC LLC',
   description:
-    'Contact MAX AEC LLC for development architecture, City of Yes feasibility, and institutional advisory support.',
+    'Contact MAX AEC LLC for residential development architecture, building compliance filings, City of Yes feasibility, or government institutional advisory.',
   alternates: { canonical: '/contact' },
   openGraph: {
     type: 'website',
     title: 'Contact | MAX AEC LLC',
-    description: 'Share project details to start scope and timeline planning with MAX AEC LLC.',
+    description:
+      'Start a project conversation with MAX AEC LLC — residential development, compliance, or government advisory.',
     url: '/contact',
     images: '/images/signature/mark_only.png',
   },
@@ -35,7 +37,7 @@ export default function ContactPage() {
 
       <PageHeader
         title="Contact"
-        description="Share project type, site location, and timeline to begin scope planning with MAX AEC LLC."
+        description="Share your project type and timeline — whether it's a compliance filing, development feasibility study, or government advisory engagement."
       />
 
       <main className="page-content">
@@ -67,13 +69,23 @@ export default function ContactPage() {
                 </a>
               </p>
             </div>
+
+            <div style={{ marginTop: '32px' }}>
+              <h3 className="contact-info-label">Quick Links</h3>
+              <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <li><Link href="/services/residential">Residential &amp; Commercial Services →</Link></li>
+                <li><Link href="/compliance">Building Compliance Filings →</Link></li>
+                <li><Link href="/services/government">Government &amp; Institutional Advisory →</Link></li>
+              </ul>
+            </div>
           </div>
 
           <div className="contact-cta-card">
             <h2>Email to Start</h2>
             <p className="contact-cta-text">
-              Send project basics and preferred schedule. Our team will respond with a next-step
-              scope.
+              Tell us your project type — residential development, compliance filing, or government
+              engagement — along with location and timeline. We&apos;ll respond with a scope and
+              next steps.
             </p>
             <a
               className="btn btn-primary"

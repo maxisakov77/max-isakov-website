@@ -49,8 +49,9 @@ export default function PeterKrasnowPage() {
             <h1>Peter C. Krasnow, FAIA</h1>
             <p className="profile-title">Justice Architecture Advisor</p>
             <p className="profile-tagline">
-              Senior justice design specialist with more than four decades of planning and design
-              leadership across detention and institutional projects.
+              50+ years of justice architecture leadership — including detention, courthouses,
+              behavioral health, forensic psychiatric, and tribal justice facilities across federal,
+              state, county, and tribal agencies nationwide.
             </p>
           </div>
         </div>
@@ -60,13 +61,16 @@ export default function PeterKrasnowPage() {
         <section className="content-section">
           <h2>Professional Summary</h2>
           <p>
-            Peter brings long-duration leadership in justice architecture, including facility
+            Peter brings 50+ years of leadership in justice architecture, including facility
             planning, programming, operations-informed design, and stakeholder-facing delivery in
-            high-accountability public projects.
+            high-accountability public projects. His work spans hundreds of correctional, judicial,
+            and behavioral health facilities for agencies at every level of government.
           </p>
           <p>
             He was elevated to Fellow of the American Institute of Architects for contributions to
-            justice planning and design.
+            justice planning and design. At MAX AEC LLC, Peter serves as senior advisor on
+            government and institutional engagements alongside principal{' '}
+            <a href="/team/max-isakov">Max Isakov, RA, AIA, NCARB</a>.
           </p>
         </section>
 

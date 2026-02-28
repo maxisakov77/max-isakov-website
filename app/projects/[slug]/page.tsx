@@ -482,8 +482,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
       <header className="project-hero">
         <div className="project-hero-content">
-          <Link href="/portfolio" className="back-link">
-            ← Back to Portfolio
+          <Link href="/services/government" className="back-link">
+            ← Government &amp; Institutional Services
           </Link>
           <h1>{project.title.split(' | ')[0]}</h1>
           <p className="project-subtitle">{project.subtitle}</p>

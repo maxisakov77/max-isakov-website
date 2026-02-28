@@ -1528,3 +1528,12 @@ footer {
         grid-template-columns: 1fr 1fr;
     }
 }
+
+/* ─── Portfolio sector headings ─── */
+.portfolio-sector-heading {
+    font-size: 1.8rem;
+    color: var(--color-primary);
+    border-bottom: 3px solid var(--color-accent);
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+}

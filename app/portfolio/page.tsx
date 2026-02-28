@@ -7,15 +7,15 @@ import ContactCta from '@/components/ContactCta';
 export const metadata: Metadata = {
   title: 'Portfolio | MAX AEC LLC',
   description:
-    'Selected company case studies from MAX AEC LLC, including NYC Borough-Based Jails, Baltimore Therapeutic Treatment Center, and Macomb County Intake Center.',
+    'Project portfolio from MAX AEC LLC: residential & commercial development in NYC plus government & institutional work spanning detention, courthouses, behavioral health, and emergency response.',
   alternates: { canonical: '/portfolio' },
   openGraph: {
     type: 'website',
     title: 'Portfolio | MAX AEC LLC',
     description:
-      'Three detailed case studies plus additional experience across justice, civic, and emergency-response projects.',
+      'Residential, commercial, and government project experience from MAX AEC LLC.',
     url: '/portfolio',
-    images: '/squarespace/bbj_render.jpg',
+    images: '/images/signature/mark_only.png',
   },
   twitter: { card: 'summary_large_image' },
 };
@@ -31,168 +31,167 @@ export default function PortfolioPage() {
             '@type': 'CollectionPage',
             name: 'Portfolio | MAX AEC LLC',
             url: 'https://www.maxaec.com/portfolio',
-            description: 'Selected project case studies from MAX AEC LLC.',
+            description: 'Project portfolio from MAX AEC LLC across residential, commercial, and government markets.',
           }),
         }}
       />
 
       <PageHeader
         title="Portfolio"
-        description="Three detailed case studies plus additional project experience across justice, civic, and emergency delivery programs."
+        description="Selected work across our two markets — residential & commercial development in NYC, and government & institutional projects nationwide."
       />
 
       <main className="page-content">
+        {/* ════════════════════════════════════════════════
+            RESIDENTIAL & COMMERCIAL
+           ════════════════════════════════════════════════ */}
         <section className="content-section">
-          <h2>NYC Borough-Based Jails</h2>
+          <h2 className="portfolio-sector-heading">Residential &amp; Commercial</h2>
           <p>
-            <strong>Context:</strong> Multi-borough replacement program for Rikers-era detention
-            infrastructure.
-            <br />
-            <strong>Role:</strong> Design and justice advisory support
-            <br />
-            <strong>Outcome:</strong> Supported humane, security-compliant high-rise detention
-            planning integrated into neighborhood contexts.
+            Our residential and commercial practice focuses on NYC development architecture, City of
+            Yes feasibility, and building compliance services. This is an active and growing service
+            line — current engagements include multifamily feasibility studies, zoning scenario
+            analysis, and flat-fee compliance filings across Manhattan, Brooklyn, Queens, and the
+            Bronx.
           </p>
-          <p>
-            Program execution required alignment between agency performance standards and design
-            approaches that improve daylight, dignity, and community integration.
-          </p>
-          <ul>
-            <li>
-              Led design studies for detention floor-plate strategies and security-sensitive
-              assemblies
-            </li>
-            <li>
-              Developed recreation and facade options balancing operational control with dignified
-              experience
-            </li>
-            <li>
-              Coordinated multi-agency requirements across zoning, code, and justice operations
-            </li>
-          </ul>
-          <div className="portfolio-gallery">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/squarespace/bbj_render.jpg"
-              alt="NYC Borough-Based Jails rendering"
-              width={1200}
-              height={800}
-              loading="lazy"
-            />
-          </div>
-          <Link href="/projects/bbj" className="btn btn-secondary">
-            View Full Case Study →
-          </Link>
-        </section>
-
-        <section className="content-section">
-          <h2>Baltimore Therapeutic Treatment Center</h2>
-          <p>
-            <strong>Context:</strong> Secure behavioral health environment for treatment-focused
-            operations.
-            <br />
-            <strong>Role:</strong> Justice design and BIM coordination support
-            <br />
-            <strong>Outcome:</strong> Strengthened coordination and documentation quality through
-            BIM-led delivery and specialized component development.
-          </p>
-          <p>
-            The project called for an operationally grounded balance between safety requirements and
-            recovery-oriented space planning.
-          </p>
-          <ul>
-            <li>Established project BIM structure for cross-discipline coordination</li>
-            <li>
-              Led custom detention and security family development for project-specific needs
-            </li>
-            <li>
-              Supported data-driven room and area workflows for consistent documentation
-            </li>
-          </ul>
-          <Link href="/projects/baltimore" className="btn btn-secondary">
-            View Full Case Study →
-          </Link>
-        </section>
-
-        <section className="content-section">
-          <h2>Macomb County Central Intake &amp; Assessment Center</h2>
-          <p>
-            <strong>Context:</strong> Intake and mental health-focused justice expansion program.
-            <br />
-            <strong>Role:</strong> Senior justice design support
-            <br />
-            <strong>Outcome:</strong> Advanced design development with clear stakeholder
-            communication and targeted therapeutic planning.
-          </p>
-          <p>
-            The scope emphasized intake efficiency while improving spatial conditions for mental
-            health assessment and treatment support.
-          </p>
-          <ul>
-            <li>
-              Directed expansion design options tied to occupancy and program requirements
-            </li>
-            <li>
-              Implemented BIM workflows from SD through DD for clearer coordination
-            </li>
-            <li>
-              Developed presentation-ready design packages for county and team alignment
-            </li>
-          </ul>
-          <div className="portfolio-gallery">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/squarespace/macomb_render.jpg"
-              alt="Macomb County Intake Center rendering"
-              width={1200}
-              height={800}
-              loading="lazy"
-            />
-          </div>
-          <Link href="/projects/macomb" className="btn btn-secondary">
-            View Full Case Study →
-          </Link>
-        </section>
-
-        <section className="content-section">
-          <h2>Additional Experience</h2>
-          <p>
-            Beyond the featured case studies, MAX AEC LLC has contributed to related civic, tribal,
-            and emergency-response project environments.
-          </p>
-          <div className="services-list">
+          <div className="services-list" style={{ marginTop: '24px' }}>
             <div className="service-item">
-              <h4>Morris County Courthouse</h4>
+              <h4>Development Architecture</h4>
               <p>
-                Design-build courthouse delivery support spanning SD through DD coordination and
-                client-facing updates.
+                Feasibility through construction documentation for multifamily, mixed-use, and
+                adaptive reuse projects. Zoning analysis, schematic design, and DOB-aligned
+                filing packages.
               </p>
             </div>
             <div className="service-item">
-              <h4>Justice Facilities for Native American Tribes</h4>
+              <h4>City of Yes Feasibility</h4>
               <p>
-                Concept and schematic justice facility modeling for tribal communities, including
-                collaboration with{' '}
-                <Link href="/team/peter-krasnow">Peter C. Krasnow, FAIA</Link>.
+                UAP scenario analysis, massing studies, and yield ranges for developers and
+                acquisition teams evaluating NYC sites under the new zoning framework.
               </p>
             </div>
             <div className="service-item">
-              <h4>COVID-19 Alternate Care Facility</h4>
+              <h4>Building Compliance</h4>
               <p>
-                Rapid design-build conversion support for a 1,024-bed non-acute treatment facility
-                delivered under emergency timelines.
+                Flat-fee parapet observations, LL152, LL88, LL97 Article 321, and Tenant Protection
+                Plans — site visit through portal filing, sealed by a Registered Architect.
               </p>
             </div>
           </div>
+          <div style={{ marginTop: '24px', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+            <Link href="/services/residential" className="btn btn-secondary">
+              View Residential Services →
+            </Link>
+            <Link href="/compliance" className="btn btn-secondary">
+              View Compliance Details →
+            </Link>
+          </div>
+        </section>
+
+        {/* ════════════════════════════════════════════════
+            GOVERNMENT & INSTITUTIONAL
+           ════════════════════════════════════════════════ */}
+        <section className="content-section">
+          <h2 className="portfolio-sector-heading">Government &amp; Institutional</h2>
           <p>
-            Across project types, the firm emphasizes early constraint definition, stakeholder
-            alignment, and high-quality documentation under schedule pressure.
+            Our government practice combines Max Isakov&apos;s 13+ years of design execution with
+            Peter Krasnow&apos;s 50+ years of senior justice advisory. Together, we have contributed
+            to hundreds of detention, courthouse, behavioral health, and civic projects nationwide.
+            Below are selected named engagements.
           </p>
+        </section>
+
+        {/* ── BBJ ── */}
+        <section className="content-section">
+          <div className="gov-project-entry">
+            <h4>NYC Borough-Based Jails</h4>
+            <p>
+              Multi-billion dollar, four-borough replacement of Rikers Island. High-rise detention
+              design, security assemblies, recreation planning, and multi-agency coordination for
+              the largest justice architecture program in U.S. history.
+            </p>
+            <span className="gov-project-meta">Manhattan, Brooklyn, The Bronx, Queens — NYC DDC</span>
+          </div>
+        </section>
+
+        {/* ── Baltimore ── */}
+        <section className="content-section">
+          <div className="gov-project-entry">
+            <h4>Baltimore Therapeutic Treatment Center</h4>
+            <p>
+              Secure behavioral health facility for the State of Maryland. Full BIM environment,
+              AI-assisted room data programming, and custom detention component development.
+            </p>
+            <span className="gov-project-meta">Baltimore, MD — State of Maryland</span>
+          </div>
+        </section>
+
+        {/* ── Macomb ── */}
+        <section className="content-section">
+          <div className="gov-project-entry">
+            <h4>Macomb County Central Intake &amp; Assessment Center</h4>
+            <p>
+              County jail expansion with dedicated mental health treatment housing. Schematic through
+              design development with stakeholder presentation delivery.
+            </p>
+            <span className="gov-project-meta">Macomb County, MI — County Government</span>
+          </div>
+        </section>
+
+        {/* ── Morris ── */}
+        <section className="content-section">
+          <div className="gov-project-entry">
+            <h4>Morris County Courthouse</h4>
+            <p>
+              Design-Build courthouse balancing civic presence, public accessibility, and three-way
+              security separation for court operations.
+            </p>
+            <span className="gov-project-meta">Morris County, NJ — County Government</span>
+          </div>
+        </section>
+
+        {/* ── Tribal ── */}
+        <section className="content-section">
+          <div className="gov-project-entry">
+            <h4>Justice Facilities for Native American Tribes</h4>
+            <p>
+              Multi-year tribal justice program integrating cultural practices, restorative justice
+              spaces, and federal compliance within sovereign tribal governance frameworks.
+            </p>
+            <span className="gov-project-meta">Various Tribal Lands — Federal / Tribal Agencies</span>
+          </div>
+        </section>
+
+        {/* ── COVID ── */}
+        <section className="content-section">
+          <div className="gov-project-entry">
+            <h4>COVID-19 Alternate Care Facility — SUNY Old Westbury</h4>
+            <p>
+              Emergency 1,024-bed facility for the U.S. Army Corps of Engineers. Design-Build
+              conversion delivered in 28 days, 12 hours ahead of schedule.
+            </p>
+            <span className="gov-project-meta">Long Island, NY — USACE / FEMA</span>
+          </div>
+        </section>
+
+        {/* ── Broader Experience ── */}
+        <section className="content-section">
+          <h3>Additional Government Experience</h3>
+          <p>
+            Beyond our named engagements, MAX AEC LLC&apos;s combined leadership has contributed to
+            hundreds of justice, civic, and institutional projects over the past five decades —
+            including federal correctional facilities, state prisons, juvenile detention, forensic
+            psychiatric hospitals, crisis stabilization units, family courts, municipal buildings,
+            military facilities, and emergency operations centers.
+          </p>
+          <Link href="/services/government" className="btn btn-secondary">
+            View Full Government Services →
+          </Link>
         </section>
 
         <ContactCta
-          heading="Need Comparable Project Experience?"
-          description="Our team can share relevant precedents and recommended scope for your project type."
+          heading="Have a Project in Either Market?"
+          description="Share your project type, location, and timeline. We'll respond with the right scope and team structure."
         />
       </main>
     </>
