@@ -89,7 +89,7 @@ test.describe('Critical Site Regressions', () => {
   });
 
   test('contact CTA mailto uses expected recipient and subject', async ({ page }) => {
-    await page.goto('/contact.html', { waitUntil: 'domcontentloaded' });
+    await page.goto('/contact', { waitUntil: 'domcontentloaded' });
 
     const cta = page.locator('.contact-cta-card a[href^="mailto:"]').first();
     await expect(cta).toBeVisible();
