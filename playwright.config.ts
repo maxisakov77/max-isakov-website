@@ -1,6 +1,6 @@
 import { defineConfig } from '@playwright/test';
 
-const baseURL = process.env.BASE_URL ?? 'http://127.0.0.1:5500';
+const baseURL = process.env.BASE_URL ?? 'http://127.0.0.1:3000';
 
 export default defineConfig({
   testDir: './tests',
@@ -19,5 +19,11 @@ export default defineConfig({
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
     viewport: { width: 1280, height: 720 },
+  },
+  webServer: {
+    command: 'npm run dev',
+    url: baseURL,
+    reuseExistingServer: !process.env.CI,
+    timeout: 30_000,
   },
 });

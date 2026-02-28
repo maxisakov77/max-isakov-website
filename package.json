@@ -1,17 +1,31 @@
 {
-  "name": "maxaec-site-checks",
-  "version": "1.0.0",
+  "name": "maxaec-website",
+  "version": "2.0.0",
   "private": true,
-  "description": "Playwright automation suite for maxaec.com",
+  "description": "MAX AEC LLC website — Next.js",
   "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
     "test:site": "playwright test",
     "test:site:headed": "playwright test --headed",
     "test:site:prod": "cross-env BASE_URL=https://www.maxaec.com playwright test",
     "test:site:ci": "cross-env PLAYWRIGHT_HTML_OUTPUT_DIR=output/playwright/report playwright test --reporter=line,html",
     "test:site:report": "playwright show-report output/playwright/report"
   },
+  "dependencies": {
+    "next": "^15.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "jose": "^6.0.0"
+  },
   "devDependencies": {
     "@playwright/test": "^1.54.2",
-    "cross-env": "^7.0.3"
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "cross-env": "^7.0.3",
+    "typescript": "^5.7.0"
   }
 }
