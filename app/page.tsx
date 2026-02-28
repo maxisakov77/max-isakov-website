@@ -4,7 +4,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'MAX AEC LLC | Development Architecture, Engineering & Consulting',
   description:
-    'MAX AEC LLC helps NYC developers and institutional clients move from feasibility to buildable, code-compliant project delivery.',
+    'MAX AEC LLC provides residential & commercial architecture services for NYC developers, plus government & institutional advisory with 60+ combined years of public-sector experience.',
   alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
@@ -67,29 +67,26 @@ export default function HomePage() {
 
       <section className="services-overview">
         <div className="container">
-          <h2>Company Capabilities</h2>
+          <h2>Two Markets. One Standard.</h2>
           <div className="services-grid">
-            <div className="service-card">
-              <h3>Development Architecture</h3>
+            <Link href="/services/residential" className="service-card" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <h3>Residential &amp; Commercial</h3>
               <p>
-                Site strategy, design, and documentation support for NYC residential and mixed-use
-                development pipelines.
+                Development architecture, City of Yes feasibility, and flat-fee building
+                compliance services for NYC property owners, developers, and general
+                contractors.
               </p>
-            </div>
-            <div className="service-card">
-              <h3>City of Yes Feasibility</h3>
+              <span className="link-arrow">View services →</span>
+            </Link>
+            <Link href="/services/government" className="service-card" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <h3>Government &amp; Institutional</h3>
               <p>
-                Scenario-based analysis for FAR, envelope constraints, and UAP impacts before major
-                capital commitments.
+                Justice architecture and institutional advisory backed by over 60
+                combined years of public-sector delivery across hundreds of projects
+                nationwide.
               </p>
-            </div>
-            <div className="service-card">
-              <h3>Institutional Advisory</h3>
-              <p>
-                Justice and behavioral health planning support with security, operations, and
-                documentation alignment.
-              </p>
-            </div>
+              <span className="link-arrow">View services →</span>
+            </Link>
           </div>
         </div>
       </section>
