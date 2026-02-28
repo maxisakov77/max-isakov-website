@@ -320,27 +320,25 @@ export default function AdminInvoicePage() {
                 <i data-lucide="building-2" className="party-icon" /> BILL TO
               </h3>
               <div className="party-info">{data.clientName || 'Client Name'}</div>
-              <div
-                className="party-info"
-                dangerouslySetInnerHTML={{
-                  __html: data.clientAddress
-                    ? data.clientAddress.replace(/\n/g, '<br>')
-                    : 'Street Address<br>City, State ZIP',
-                }}
-              />
+              <div className="party-info">
+                {data.clientAddress
+                  ? data.clientAddress.split('\n').map((line, i, arr) => (
+                      <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
+                    ))
+                  : <><span>Street Address</span><br /><span>City, State ZIP</span></>}
+              </div>
             </div>
             <div className="project-info">
               <h3>
                 <i data-lucide="briefcase" className="party-icon" /> PROJECT
               </h3>
-              <div
-                className="party-info"
-                dangerouslySetInnerHTML={{
-                  __html: data.projectRef
-                    ? data.projectRef.replace(/\n/g, '<br>')
-                    : 'Project Description',
-                }}
-              />
+              <div className="party-info">
+                {data.projectRef
+                  ? data.projectRef.split('\n').map((line, i, arr) => (
+                      <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
+                    ))
+                  : 'Project Description'}
+              </div>
               {data.bbl && (
                 <div className="party-info bbl-line">BBL: {data.bbl}</div>
               )}
