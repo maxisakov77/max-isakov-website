@@ -28,31 +28,11 @@ jobs:
       - name: Install Playwright browser
         run: npx playwright install --with-deps chromium
 
-      - name: Start local static server
-        run: |
-          python -m http.server 5500 > /tmp/http-server.log 2>&1 &
-          echo $! > /tmp/http-server.pid
-          for i in {1..20}; do
-            if curl -fsS http://127.0.0.1:5500 > /dev/null; then
-              exit 0
-            fi
-            sleep 1
-          done
-          echo "Local server failed to start."
-          cat /tmp/http-server.log || true
-          exit 1
+      - name: Build
+        run: npm run build
 
       - name: Run local Playwright checks
-        env:
-          BASE_URL: http://127.0.0.1:5500
         run: npm run test:site:ci
-
-      - name: Stop local static server
-        if: always()
-        run: |
-          if [ -f /tmp/http-server.pid ]; then
-            kill "$(cat /tmp/http-server.pid)" || true
-          fi
 
       - name: Upload local artifacts
         if: always()
