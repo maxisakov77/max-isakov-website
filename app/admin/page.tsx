@@ -175,7 +175,7 @@ export default function AdminInvoicePage() {
       <link rel="stylesheet" href="/admin-style.css" />
 
       {/* Lucide icons (CDN, matches original) */}
-      <Script src="https://unpkg.com/lucide@latest" strategy="afterInteractive" onLoad={() => {
+      <Script src="https://unpkg.com/lucide@0.575.0/dist/umd/lucide.min.js" strategy="afterInteractive" onLoad={() => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (window as any).lucide?.createIcons?.();
       }} />
