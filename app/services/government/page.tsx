@@ -70,7 +70,7 @@ export default function GovernmentServicesPage() {
               <h3>
                 <Link href="/team/peter-krasnow">Peter C. Krasnow, FAIA</Link>
               </h3>
-              <p className="gov-leader-role">Senior Justice Advisor — 50+ Years</p>
+              <p className="gov-leader-role">Senior Justice Designer — 50+ Years</p>
               <p>
                 One of the most experienced justice architects in the United States. Fellow
                 of the American Institute of Architects. Five decades of continuous practice

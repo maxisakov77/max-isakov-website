@@ -32,7 +32,7 @@ export default function TeamPage() {
             url: 'https://www.maxaec.com/team',
             member: [
               { '@type': 'Person', name: 'Max Isakov', jobTitle: 'Principal' },
-              { '@type': 'Person', name: 'Peter C. Krasnow', jobTitle: 'Senior Advisor' },
+              { '@type': 'Person', name: 'Peter C. Krasnow', jobTitle: 'Senior Designer' },
             ],
           }),
         }}
@@ -95,7 +95,7 @@ export default function TeamPage() {
               </div>
               <div className="team-info">
                 <h3>Peter C. Krasnow, FAIA</h3>
-                <p className="team-title">Senior Advisor, Justice Architecture</p>
+                <p className="team-title">Senior Designer, Justice Architecture</p>
                 <p className="team-bio">
                   50+ years of justice architecture leadership. Fellow of the AIA. Author of
                   &quot;Correctional Facility Design and Detailing.&quot; Over 42,000 beds designed
