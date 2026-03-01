@@ -134,25 +134,6 @@ export default function ResidentialServicesPage() {
           </p>
         </section>
 
-        {/* ── Why MAX AEC ── */}
-        <section className="content-section credentials-highlight">
-          <h2>Why MAX AEC</h2>
-          <div className="credentials-grid">
-            <div className="credential-item">
-              <span className="credential-number">RA</span>
-              <span className="credential-label">NY Registered Architect</span>
-            </div>
-            <div className="credential-item">
-              <span className="credential-number">Flat Fee</span>
-              <span className="credential-label">No Hourly Surprises</span>
-            </div>
-            <div className="credential-item">
-              <span className="credential-number">1–3 Days</span>
-              <span className="credential-label">Typical Filing Turnaround</span>
-            </div>
-          </div>
-        </section>
-
         <ContactCta
           heading="Start a Residential or Commercial Project"
           description="Share your building address, project type, and timeline. We'll respond with a clear scope and flat-fee quote."
