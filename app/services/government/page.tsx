@@ -56,7 +56,7 @@ export default function GovernmentServicesPage() {
           <div className="gov-leaders">
             <div className="gov-leader-card">
               <h3>Max Isakov, RA, AIA, NCARB</h3>
-              <p className="gov-leader-role">Principal — 13+ Years</p>
+              <p className="gov-leader-role">Principal / Justice Design, SME — 13+ Years</p>
               <p>
                 Leads design execution, BIM coordination, and technical delivery for justice
                 and institutional programs. Project experience spans high-rise detention,
@@ -70,7 +70,7 @@ export default function GovernmentServicesPage() {
               <h3>
                 <Link href="/team/peter-krasnow">Peter C. Krasnow, FAIA</Link>
               </h3>
-              <p className="gov-leader-role">Senior Justice Designer — 50+ Years</p>
+              <p className="gov-leader-role">Senior Designer / Justice Design, SME — 50+ Years</p>
               <p>
                 One of the most experienced justice architects in the United States. Fellow
                 of the American Institute of Architects. Five decades of continuous practice

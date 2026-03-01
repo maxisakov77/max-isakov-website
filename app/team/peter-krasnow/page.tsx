@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Peter C. Krasnow, FAIA | Senior Designer | MAX AEC LLC',
+  title: 'Peter C. Krasnow, FAIA | Senior Designer, Justice Design SME | MAX AEC LLC',
   description:
-    'Profile of Peter C. Krasnow, FAIA, justice architecture designer and long-time collaborator on specialized institutional projects.',
+    'Profile of Peter C. Krasnow, FAIA — justice design SME and long-time collaborator on specialized institutional projects.',
   alternates: { canonical: '/team/peter-krasnow' },
   openGraph: {
     type: 'profile',
-    title: 'Peter C. Krasnow, FAIA | Senior Designer | MAX AEC LLC',
+    title: 'Peter C. Krasnow, FAIA | Senior Designer, Justice Design SME | MAX AEC LLC',
     description:
       'Justice architecture expertise and representative project background from Peter C. Krasnow, FAIA.',
     url: '/team/peter-krasnow',
@@ -28,7 +28,7 @@ export default function PeterKrasnowPage() {
             name: 'Peter Krasnow',
             url: 'https://www.maxaec.com/team/peter-krasnow',
             description:
-              'Justice architecture designer profile for Peter C. Krasnow, FAIA.',
+              'Justice design SME profile for Peter C. Krasnow, FAIA.',
           }),
         }}
       />
@@ -47,7 +47,7 @@ export default function PeterKrasnowPage() {
           </div>
           <div className="profile-info">
             <h1>Peter C. Krasnow, FAIA</h1>
-            <p className="profile-title">Justice Architecture Designer</p>
+            <p className="profile-title">Senior Designer / Justice Design, SME</p>
             <p className="profile-tagline">
               50+ years of justice architecture leadership — including detention, courthouses,
               behavioral health, forensic psychiatric, and tribal justice facilities across federal,

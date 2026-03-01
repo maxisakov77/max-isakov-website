@@ -48,7 +48,7 @@ export default function MaxIsakovPage() {
           </div>
           <div className="profile-info">
             <h1>Max Isakov, RA, AIA, NCARB</h1>
-            <p className="profile-title">Principal / Lead Architect</p>
+            <p className="profile-title">Principal / Justice Design, SME</p>
             <p className="profile-tagline">
               Registered Architect with 13+ years of experience leading design execution across
               residential development, building compliance, and government institutional projects.
