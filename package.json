@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "signature:png": "node scripts/generate-signature-pngs.mjs",
     "test:site": "playwright test",
     "test:site:headed": "playwright test --headed",
     "test:site:prod": "cross-env BASE_URL=https://www.maxaec.com playwright test",
