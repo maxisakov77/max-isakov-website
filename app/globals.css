@@ -1529,6 +1529,103 @@ footer {
     }
 }
 
+/* ─── Why MAX AEC section ─── */
+.why-section {
+    background: #1a1a1a;
+    color: #ffffff;
+    padding: 80px 24px;
+}
+
+.why-header {
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+.why-header h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    color: #ffffff;
+}
+
+.why-header p {
+    font-size: 1.05rem;
+    color: #999999;
+    max-width: 460px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.why-stats {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.why-stat {
+    flex: 1;
+    text-align: center;
+    padding: 0 32px;
+}
+
+.why-stat-number {
+    display: block;
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+}
+
+.why-stat-unit {
+    display: block;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #999999;
+    margin-top: 6px;
+}
+
+.why-stat-label {
+    display: block;
+    font-size: 0.82rem;
+    color: #666666;
+    margin-top: 12px;
+    line-height: 1.4;
+}
+
+.why-stat-divider {
+    width: 1px;
+    background: #333333;
+    align-self: stretch;
+    min-height: 80px;
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .why-stats {
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+    }
+
+    .why-stat {
+        padding: 0;
+    }
+
+    .why-stat-divider {
+        width: 48px;
+        height: 1px;
+        min-height: 0;
+    }
+}
+
 /* ─── Portfolio sector headings ─── */
 .portfolio-sector-heading {
     font-size: 1.8rem;

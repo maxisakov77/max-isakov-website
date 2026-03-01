@@ -113,21 +113,37 @@ export default function HomePage() {
       </section>
 
       {/* ── Credentials ── */}
-      <section className="services-overview" style={{ background: 'var(--color-bg)' }}>
+      <section className="why-section">
         <div className="container">
-          <h2>Why MAX AEC</h2>
-          <div className="services-grid">
-            <div className="service-card" style={{ textAlign: 'center' }}>
-              <h3>13+ Years</h3>
-              <p>Max Isakov, RA, AIA, NCARB — leads design execution, BIM, and technical delivery across residential and institutional projects.</p>
+          <div className="why-header">
+            <h2>Why MAX AEC</h2>
+            <p>
+              Two principals. Sixty combined years. One point of contact for every project.
+            </p>
+          </div>
+          <div className="why-stats">
+            <div className="why-stat">
+              <span className="why-stat-number">13+</span>
+              <span className="why-stat-unit">years</span>
+              <span className="why-stat-label">Max Isakov, RA, AIA, NCARB</span>
             </div>
-            <div className="service-card" style={{ textAlign: 'center' }}>
-              <h3>50+ Years</h3>
-              <p>Peter C. Krasnow, FAIA — senior justice advisor with five decades of detention, courthouse, and behavioral health leadership.</p>
+            <div className="why-stat-divider" />
+            <div className="why-stat">
+              <span className="why-stat-number">50+</span>
+              <span className="why-stat-unit">years</span>
+              <span className="why-stat-label">Peter C. Krasnow, FAIA</span>
             </div>
-            <div className="service-card" style={{ textAlign: 'center' }}>
-              <h3>Flat-Fee Pricing</h3>
-              <p>No hourly billing. Every compliance filing and feasibility scope is quoted upfront as a fixed number.</p>
+            <div className="why-stat-divider" />
+            <div className="why-stat">
+              <span className="why-stat-number">Flat</span>
+              <span className="why-stat-unit">fee</span>
+              <span className="why-stat-label">Every scope quoted upfront</span>
+            </div>
+            <div className="why-stat-divider" />
+            <div className="why-stat">
+              <span className="why-stat-number">1–3</span>
+              <span className="why-stat-unit">day turnaround</span>
+              <span className="why-stat-label">Compliance filings</span>
             </div>
           </div>
         </div>
