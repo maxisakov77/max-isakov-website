@@ -67,24 +67,6 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        <section className="content-section credentials-highlight" style={{ maxWidth: '800px', margin: '40px auto 60px' }}>
-          <h2>Company at a Glance</h2>
-          <div className="credentials-grid">
-            <div className="credential-item">
-              <span className="credential-number">60+</span>
-              <span className="credential-label">Combined Years of Practice</span>
-            </div>
-            <div className="credential-item">
-              <span className="credential-number">NYC</span>
-              <span className="credential-label">Development &amp; Compliance Focus</span>
-            </div>
-            <div className="credential-item">
-              <span className="credential-number">National</span>
-              <span className="credential-label">Government &amp; Justice Reach</span>
-            </div>
-          </div>
-        </section>
-
         <ContactCta
           heading="Not Sure Where to Start?"
           description="Share your project type and location. We'll point you to the right service line and scope."
