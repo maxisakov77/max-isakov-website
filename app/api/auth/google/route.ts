@@ -28,11 +28,36 @@ function originAllowed(request: NextRequest): boolean {
     process.env.NEXT_PUBLIC_SITE_URL,
     'https://www.maxaec.com',
     'https://admin.maxaec.com',
+    'https://regtime.maxaec.com',
     'http://localhost:3000',
     'http://admin.localhost:3000',
+    'http://regtime.localhost:3000',
   ];
   return allowed.some((a) => a && origin.startsWith(a));
 }
+
+/* ── Per-app authorisation logic ──────────────────────────── */
+type AppName = 'admin' | 'regtime';
+
+const REGTIME_ALLOWED_DOMAINS = ['maxaec.com', 'maxisakov.com', 'regtime.com'];
+
+function isEmailAuthorised(email: string, app: AppName): boolean {
+  if (app === 'regtime') {
+    const domain = email.split('@')[1];
+    return REGTIME_ALLOWED_DOMAINS.includes(domain);
+  }
+  // Default: admin — use env allowlist
+  const allowedEmails = (process.env.ADMIN_ALLOWED_EMAILS ?? '')
+    .split(',')
+    .map((e) => e.trim().toLowerCase())
+    .filter(Boolean);
+  return allowedEmails.includes(email);
+}
+
+const SESSION_COOKIE_NAME: Record<AppName, string> = {
+  admin: 'admin_session',
+  regtime: 'regtime_session',
+};
 
 export async function POST(request: NextRequest) {
   /* ── CSRF check ── */
@@ -50,7 +75,9 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const { credential } = await request.json();
+    const body = await request.json();
+    const { credential, app: rawApp } = body;
+    const app: AppName = rawApp === 'regtime' ? 'regtime' : 'admin';
 
     if (!credential) {
       return NextResponse.json({ error: 'Missing credential' }, { status: 400 });
@@ -69,30 +96,26 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'No email in token' }, { status: 400 });
     }
 
-    // Check against allowed emails from env
-    const allowedEmails = (process.env.ADMIN_ALLOWED_EMAILS ?? '')
-      .split(',')
-      .map((e) => e.trim().toLowerCase())
-      .filter(Boolean);
-
-    if (!allowedEmails.includes(email)) {
+    // Check authorisation per app
+    if (!isEmailAuthorised(email, app)) {
       return NextResponse.json(
         { error: `Access denied. Unauthorized account (${email}).` },
         { status: 403 },
       );
     }
 
-    // Create a session token (signed JWT) for the admin
+    // Create a session token (signed JWT)
     const secret = new TextEncoder().encode(process.env.SESSION_SECRET);
-    const sessionToken = await new jose.SignJWT({ email, name: payload.name as string })
+    const sessionToken = await new jose.SignJWT({ email, name: payload.name as string, app })
       .setProtectedHeader({ alg: 'HS256' })
       .setIssuedAt()
       .setExpirationTime('8h')
       .sign(secret);
 
-    // Set httpOnly cookie
+    // Set httpOnly cookie (name depends on app)
+    const cookieName = SESSION_COOKIE_NAME[app];
     const response = NextResponse.json({ ok: true, name: payload.name, email });
-    response.cookies.set('admin_session', sessionToken, {
+    response.cookies.set(cookieName, sessionToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax',

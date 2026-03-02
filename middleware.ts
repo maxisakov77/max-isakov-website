@@ -2,15 +2,24 @@ import { NextRequest, NextResponse } from 'next/server';
 import * as jose from 'jose';
 
 /* ── Subdomain detection ──────────────────────────────────── */
-function isAdminSubdomain(request: NextRequest): boolean {
+type AppSubdomain = 'admin' | 'regtime' | null;
+
+function detectSubdomain(request: NextRequest): AppSubdomain {
   const host = request.headers.get('host') ?? '';
-  // Production: admin.maxaec.com  |  Dev: admin.localhost:*
-  return host.startsWith('admin.');
+  if (host.startsWith('admin.')) return 'admin';
+  if (host.startsWith('regtime.')) return 'regtime';
+  return null;
 }
 
+/* ── Cookie name per app ──────────────────────────────────── */
+const SESSION_COOKIE: Record<string, string> = {
+  admin: 'admin_session',
+  regtime: 'regtime_session',
+};
+
 /* ── Session verification (shared helper) ─────────────────── */
-async function verifySession(request: NextRequest): Promise<boolean> {
-  const token = request.cookies.get('admin_session')?.value;
+async function verifySession(request: NextRequest, cookieName: string): Promise<boolean> {
+  const token = request.cookies.get(cookieName)?.value;
   if (!token) return false;
   try {
     const secret = new TextEncoder().encode(process.env.SESSION_SECRET);
@@ -21,10 +30,51 @@ async function verifySession(request: NextRequest): Promise<boolean> {
   }
 }
 
-function clearSessionRedirect(loginUrl: URL): NextResponse {
+function clearSessionRedirect(loginUrl: URL, cookieName: string): NextResponse {
   const res = NextResponse.redirect(loginUrl);
-  res.cookies.set('admin_session', '', { maxAge: 0, path: '/' });
+  res.cookies.set(cookieName, '', { maxAge: 0, path: '/' });
   return res;
+}
+
+/* ── Generic subdomain handler ────────────────────────────── */
+async function handleSubdomain(
+  request: NextRequest,
+  app: 'admin' | 'regtime',
+): Promise<NextResponse> {
+  const { pathname } = request.nextUrl;
+  const cookie = SESSION_COOKIE[app];
+
+  // Let API auth routes pass through (needed for login flow)
+  if (pathname.startsWith('/api/')) return NextResponse.next();
+
+  // Compute the physical path (avoid double-prefixing)
+  const needsPrefix = !pathname.startsWith(`/${app}`);
+  const physicalPath = needsPrefix ? `/${app}${pathname === '/' ? '' : pathname}` : pathname;
+
+  // Login page — allow without session
+  if (physicalPath === `/${app}/login`) {
+    if (needsPrefix) {
+      const url = request.nextUrl.clone();
+      url.pathname = `/${app}/login`;
+      return NextResponse.rewrite(url);
+    }
+    return NextResponse.next();
+  }
+
+  // Everything else — require a valid session
+  const valid = await verifySession(request, cookie);
+  if (!valid) {
+    const loginUrl = new URL('/login', request.url);
+    return clearSessionRedirect(loginUrl, cookie);
+  }
+
+  // Rewrite so Next.js finds the correct page under /app/<app>/*
+  if (needsPrefix) {
+    const url = request.nextUrl.clone();
+    url.pathname = physicalPath;
+    return NextResponse.rewrite(url);
+  }
+  return NextResponse.next();
 }
 
 /* ── Middleware ────────────────────────────────────────────── */
@@ -32,43 +82,13 @@ export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   /* ═══════════════════════════════════════════════════════════
-     Admin subdomain  (admin.maxaec.com / admin.localhost:3000)
+     App subdomains  (admin.maxaec.com / regtime.maxaec.com)
      Every request is gated behind auth.  Paths are rewritten
-     so the existing /admin/* Next.js pages render seamlessly.
+     so the existing /<app>/* Next.js pages render seamlessly.
      ═══════════════════════════════════════════════════════════ */
-  if (isAdminSubdomain(request)) {
-    // Let API auth routes pass through (needed for login flow)
-    if (pathname.startsWith('/api/')) return NextResponse.next();
-
-    // Compute the physical admin path (avoid double-prefixing)
-    const needsPrefix = !pathname.startsWith('/admin');
-    const adminPath = needsPrefix ? `/admin${pathname === '/' ? '' : pathname}` : pathname;
-
-    // Login page — allow without session
-    if (adminPath === '/admin/login') {
-      if (needsPrefix) {
-        const url = request.nextUrl.clone();
-        url.pathname = '/admin/login';
-        return NextResponse.rewrite(url);
-      }
-      return NextResponse.next();
-    }
-
-    // Everything else — require a valid session
-    const valid = await verifySession(request);
-    if (!valid) {
-      // Clear stale cookie (if any) and redirect to subdomain login
-      const loginUrl = new URL('/login', request.url);
-      return clearSessionRedirect(loginUrl);
-    }
-
-    // Rewrite to /admin/* so Next.js finds the correct page
-    if (needsPrefix) {
-      const url = request.nextUrl.clone();
-      url.pathname = adminPath;
-      return NextResponse.rewrite(url);
-    }
-    return NextResponse.next();
+  const subdomain = detectSubdomain(request);
+  if (subdomain) {
+    return handleSubdomain(request, subdomain);
   }
 
   /* ═══════════════════════════════════════════════════════════
@@ -82,17 +102,17 @@ export async function middleware(request: NextRequest) {
   // Allow login page
   if (pathname === '/admin/login') return NextResponse.next();
 
-  const valid = await verifySession(request);
+  const valid = await verifySession(request, SESSION_COOKIE.admin);
   if (!valid) {
     const loginUrl = new URL('/admin/login', request.url);
-    return clearSessionRedirect(loginUrl);
+    return clearSessionRedirect(loginUrl, SESSION_COOKIE.admin);
   }
 
   return NextResponse.next();
 }
 
 /* ── Matcher ──────────────────────────────────────────────── */
-// Broad matcher so admin-subdomain requests are intercepted.
+// Broad matcher so subdomain requests are intercepted.
 // Static assets (_next/static, _next/image, favicon) are excluded.
 export const config = {
   matcher: ['/((?!_next/static|_next/image|favicon\\.ico).*)'],
