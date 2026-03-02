@@ -54,7 +54,11 @@ export default function RegtimeLoginPage() {
 
       <div className="login-overlay" style={{ display: 'flex' }}>
         <div className="login-card">
-          <h2>RegTime Login</h2>
+          <img
+            src="/images/regtime-logo.svg"
+            alt="RegTime"
+            className="login-logo"
+          />
           <p>Sign in with your authorized Google account to access RegTime.</p>
 
           <div
@@ -108,6 +112,11 @@ export default function RegtimeLoginPage() {
           max-width: 420px;
           width: 90%;
           text-align: center;
+        }
+        .login-logo {
+          width: 220px;
+          height: auto;
+          margin-bottom: 1.25rem;
         }
         .login-card h2 {
           margin-bottom: 0.5rem;
