@@ -48,7 +48,7 @@ export default function HomePage() {
             height={196}
             style={{ maxWidth: '100%', height: 'auto', marginBottom: '2rem' }}
           />
-          <p className="hero-brand-tagline">Architecture · Compliance · Advisory</p>
+          <p className="hero-brand-tagline">Architecture · Engineering · Consulting</p>
           <p className="hero-subtitle">
             Two markets. One standard of execution.
           </p>
