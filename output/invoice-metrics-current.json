@@ -1,0 +1,18 @@
+{
+  "invoiceRect": {
+    "x": 0,
+    "y": 0,
+    "width": 906.71875,
+    "height": 1296.1875,
+    "top": 0,
+    "right": 906.71875,
+    "bottom": 1296.1875,
+    "left": 0
+  },
+  "paymentRow": {
+    "flexDirection": "column",
+    "width": 755.5625,
+    "scrollWidth": 756,
+    "clientWidth": 756
+  }
+}

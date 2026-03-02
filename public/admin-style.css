@@ -862,12 +862,13 @@ textarea.item-input {
 /* ─── Print Styles ─── */
 @media print {
     @page {
-        size: A4;
-        margin: 0;
+        size: Letter portrait;
+        margin: 12.7mm;
     }
 
     body {
         background: white;
+        margin: 0;
         padding: 0;
     }
 
@@ -891,7 +892,8 @@ textarea.item-input {
         box-shadow: none;
         padding: 15mm 20mm;
         margin: 0;
-        width: 100%;
+        width: auto;
+        min-height: auto;
         background-image: none !important;
     }
 
@@ -929,6 +931,43 @@ textarea.item-input {
         border: 1px solid #ddd !important;
         print-color-adjust: exact;
         -webkit-print-color-adjust: exact;
+    }
+
+    .payment-methods-row {
+        flex-direction: column !important;
+        gap: 0.5rem;
+    }
+
+    .zelle-card {
+        flex-wrap: wrap !important;
+    }
+
+    .zelle-card .payment-qr {
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid var(--border);
+        margin-left: 0;
+        padding-left: 0;
+        padding-top: 0.5rem;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .payment-qrcode {
+        max-width: 96px;
+    }
+
+    .invoice-header,
+    .invoice-parties,
+    .invoice-items,
+    .invoice-summary,
+    .payment-method-item {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .items-table thead {
+        display: table-header-group;
     }
 
     /* Transform inputs to normal text for printing */
