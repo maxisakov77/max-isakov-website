@@ -92,9 +92,24 @@ export async function middleware(request: NextRequest) {
   }
 
   /* ═══════════════════════════════════════════════════════════
-     Main domain (www.maxaec.com) — existing behaviour:
-     only /admin routes are protected.
+     Main domain (www.maxaec.com) — protect /admin and /regtime
+     routes so they can't be accessed without auth even on the
+     main domain.
      ═══════════════════════════════════════════════════════════ */
+
+  // Regtime routes on main domain
+  if (pathname.startsWith('/regtime')) {
+    if (pathname === '/regtime/login') return NextResponse.next();
+
+    const valid = await verifySession(request, SESSION_COOKIE.regtime);
+    if (!valid) {
+      const loginUrl = new URL('/regtime/login', request.url);
+      return clearSessionRedirect(loginUrl, SESSION_COOKIE.regtime);
+    }
+    return NextResponse.next();
+  }
+
+  // Admin routes on main domain
   if (!pathname.startsWith('/admin')) {
     return NextResponse.next();
   }
