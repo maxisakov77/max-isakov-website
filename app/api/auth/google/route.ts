@@ -24,7 +24,7 @@ function isRateLimited(ip: string): boolean {
 function originAllowed(request: NextRequest): boolean {
   const origin = request.headers.get('origin');
   if (!origin) return false;
-  const allowed = [
+  const allowed = new Set([
     process.env.NEXT_PUBLIC_SITE_URL,
     'https://www.maxaec.com',
     'https://admin.maxaec.com',
@@ -32,8 +32,9 @@ function originAllowed(request: NextRequest): boolean {
     'http://localhost:3000',
     'http://admin.localhost:3000',
     'http://regtime.localhost:3000',
-  ];
-  return allowed.some((a) => a && origin.startsWith(a));
+  ]);
+  // Exact match — startsWith would let admin.maxaec.com.evil.com pass
+  return allowed.has(origin);
 }
 
 /* ── Per-app authorisation logic ──────────────────────────── */
@@ -91,9 +92,18 @@ export async function POST(request: NextRequest) {
     });
 
     const email = (payload.email as string)?.toLowerCase();
+    const emailVerified = payload.email_verified;
 
     if (!email) {
       return NextResponse.json({ error: 'No email in token' }, { status: 400 });
+    }
+
+    // Reject unverified email addresses
+    if (!emailVerified) {
+      return NextResponse.json(
+        { error: 'Email address is not verified.' },
+        { status: 403 },
+      );
     }
 
     // Check authorisation per app

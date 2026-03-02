@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 function originAllowed(request: NextRequest): boolean {
   const origin = request.headers.get('origin');
   if (!origin) return false;
-  const allowed = [
+  const allowed = new Set([
     process.env.NEXT_PUBLIC_SITE_URL,
     'https://www.maxaec.com',
     'https://admin.maxaec.com',
@@ -12,8 +12,8 @@ function originAllowed(request: NextRequest): boolean {
     'http://localhost:3000',
     'http://admin.localhost:3000',
     'http://regtime.localhost:3000',
-  ];
-  return allowed.some((a) => a && origin.startsWith(a));
+  ]);
+  return allowed.has(origin);
 }
 
 export async function POST(request: NextRequest) {

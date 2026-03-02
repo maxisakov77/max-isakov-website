@@ -18,12 +18,18 @@ const SESSION_COOKIE: Record<string, string> = {
 };
 
 /* ── Session verification (shared helper) ─────────────────── */
-async function verifySession(request: NextRequest, cookieName: string): Promise<boolean> {
+async function verifySession(
+  request: NextRequest,
+  cookieName: string,
+  expectedApp: 'admin' | 'regtime',
+): Promise<boolean> {
   const token = request.cookies.get(cookieName)?.value;
   if (!token) return false;
   try {
     const secret = new TextEncoder().encode(process.env.SESSION_SECRET);
-    await jose.jwtVerify(token, secret);
+    const { payload } = await jose.jwtVerify(token, secret);
+    // Prevent cross-app escalation: a regtime JWT must not grant admin access
+    if (payload.app !== expectedApp) return false;
     return true;
   } catch {
     return false;
@@ -62,7 +68,7 @@ async function handleSubdomain(
   }
 
   // Everything else — require a valid session
-  const valid = await verifySession(request, cookie);
+  const valid = await verifySession(request, cookie, app);
   if (!valid) {
     const loginUrl = new URL('/login', request.url);
     return clearSessionRedirect(loginUrl, cookie);
@@ -97,11 +103,14 @@ export async function middleware(request: NextRequest) {
      main domain.
      ═══════════════════════════════════════════════════════════ */
 
-  // Regtime routes on main domain
-  if (pathname.startsWith('/regtime')) {
-    if (pathname === '/regtime/login') return NextResponse.next();
+  // Normalise pathname for case-insensitive route matching
+  const pathLower = pathname.toLowerCase();
 
-    const valid = await verifySession(request, SESSION_COOKIE.regtime);
+  // Regtime routes on main domain
+  if (pathLower.startsWith('/regtime')) {
+    if (pathLower === '/regtime/login') return NextResponse.next();
+
+    const valid = await verifySession(request, SESSION_COOKIE.regtime, 'regtime');
     if (!valid) {
       const loginUrl = new URL('/regtime/login', request.url);
       return clearSessionRedirect(loginUrl, SESSION_COOKIE.regtime);
@@ -110,14 +119,14 @@ export async function middleware(request: NextRequest) {
   }
 
   // Admin routes on main domain
-  if (!pathname.startsWith('/admin')) {
+  if (!pathLower.startsWith('/admin')) {
     return NextResponse.next();
   }
 
   // Allow login page
-  if (pathname === '/admin/login') return NextResponse.next();
+  if (pathLower === '/admin/login') return NextResponse.next();
 
-  const valid = await verifySession(request, SESSION_COOKIE.admin);
+  const valid = await verifySession(request, SESSION_COOKIE.admin, 'admin');
   if (!valid) {
     const loginUrl = new URL('/admin/login', request.url);
     return clearSessionRedirect(loginUrl, SESSION_COOKIE.admin);
