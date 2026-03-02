@@ -24,7 +24,13 @@ function isRateLimited(ip: string): boolean {
 function originAllowed(request: NextRequest): boolean {
   const origin = request.headers.get('origin');
   if (!origin) return false;
-  const allowed = [process.env.NEXT_PUBLIC_SITE_URL, 'https://www.maxaec.com', 'http://localhost:3000'];
+  const allowed = [
+    process.env.NEXT_PUBLIC_SITE_URL,
+    'https://www.maxaec.com',
+    'https://admin.maxaec.com',
+    'http://localhost:3000',
+    'http://admin.localhost:3000',
+  ];
   return allowed.some((a) => a && origin.startsWith(a));
 }
 

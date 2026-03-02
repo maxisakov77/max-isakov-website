@@ -1,11 +1,16 @@
 'use client';
 
-import { useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import Script from 'next/script';
 
 export default function AdminLoginPage() {
   const router = useRouter();
+  const [isSubdomain, setIsSubdomain] = useState(false);
+
+  useEffect(() => {
+    setIsSubdomain(window.location.hostname.startsWith('admin.'));
+  }, []);
 
   const handleCredentialResponse = useCallback(
     async (response: { credential: string }) => {
@@ -19,7 +24,9 @@ export default function AdminLoginPage() {
         });
 
         if (res.ok) {
-          router.push('/admin');
+          // On admin subdomain, root is the dashboard; on main domain, /admin is.
+          const isSubdomain = window.location.hostname.startsWith('admin.');
+          router.push(isSubdomain ? '/' : '/admin');
         } else {
           const data = await res.json();
           if (errorEl) {
@@ -75,7 +82,11 @@ export default function AdminLoginPage() {
           >
             Access Denied.
           </p>
-          <a href="/" className="back-link" style={{ display: 'block', marginTop: '1.5rem' }}>
+          <a
+            href={isSubdomain ? 'https://www.maxaec.com' : '/'}
+            className="back-link"
+            style={{ display: 'block', marginTop: '1.5rem' }}
+          >
             ← Back to Public Website
           </a>
         </div>
