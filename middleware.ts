@@ -53,6 +53,11 @@ async function handleSubdomain(
   // Let API auth routes pass through (needed for login flow)
   if (pathname.startsWith('/api/')) return NextResponse.next();
 
+  // Let public static assets pass through without rewrite or auth
+  if (pathname.startsWith('/images/') || pathname.startsWith('/admin-assets/') || pathname.startsWith('/peter-krasnow/') || pathname.startsWith('/squarespace/') || pathname.endsWith('.txt') || pathname.endsWith('.css')) {
+    return NextResponse.next();
+  }
+
   // Compute the physical path (avoid double-prefixing)
   const needsPrefix = !pathname.startsWith(`/${app}`);
   const physicalPath = needsPrefix ? `/${app}${pathname === '/' ? '' : pathname}` : pathname;
