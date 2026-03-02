@@ -30,7 +30,7 @@ export default function RegtimeDashboard() {
     <>
       <div className="rt-shell">
         <header className="rt-header">
-          <h1>RegTime</h1>
+          <h1>Regtime</h1>
           <div className="rt-header-right">
             {user && <span className="rt-user">{user.name}</span>}
             <button onClick={handleLogout} className="rt-logout">
@@ -40,7 +40,7 @@ export default function RegtimeDashboard() {
         </header>
         <main className="rt-main">
           <div className="rt-welcome">
-            <h2>Welcome to RegTime</h2>
+            <h2>Welcome to Regtime</h2>
             <p>Your regulatory time-tracking dashboard.</p>
           </div>
         </main>

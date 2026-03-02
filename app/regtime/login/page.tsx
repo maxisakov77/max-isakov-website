@@ -56,10 +56,10 @@ export default function RegtimeLoginPage() {
         <div className="login-card">
           <img
             src="/images/regtime-logo.svg"
-            alt="RegTime"
+            alt="Regtime"
             className="login-logo"
           />
-          <p>Sign in with your authorized Google account to access RegTime.</p>
+          <p>Sign in with your authorized Google account to access Regtime.</p>
 
           <div
             id="g_id_onload"
