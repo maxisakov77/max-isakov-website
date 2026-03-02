@@ -12,8 +12,28 @@
     --color-text: #333333;
     --color-text-muted: #777777;
     --color-border: #e0e0e0;
+    --color-shadow: rgba(0, 0, 0, 0.1);
+    --color-shadow-heavy: rgba(0, 0, 0, 0.2);
+    --color-danger: #b91c1c;
+    --color-navbar-bg: rgba(255, 255, 255, 0.9);
     --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="dark"] {
+    --color-bg: #111111;
+    --color-bg-light: #1a1a1a;
+    --color-bg-card: #1e1e1e;
+    --color-primary: #e0e0e0;
+    --color-primary-hover: #cccccc;
+    --color-accent: #e0e0e0;
+    --color-text: #e8e8e8;
+    --color-text-muted: #999999;
+    --color-border: #2e2e2e;
+    --color-shadow: rgba(0, 0, 0, 0.3);
+    --color-shadow-heavy: rgba(0, 0, 0, 0.5);
+    --color-danger: #ef4444;
+    --color-navbar-bg: rgba(17, 17, 17, 0.9);
 }
 
 * {
@@ -61,7 +81,7 @@ body {
     left: 0;
     right: 0;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.9);
+    background: var(--color-navbar-bg);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--color-border);
 }
@@ -97,7 +117,7 @@ body {
 .brand-divider {
     width: 2px;
     height: 26px;
-    background: #1a1a2e;
+    background: var(--color-text);
     display: inline-block;
     flex-shrink: 0;
 }
@@ -227,7 +247,7 @@ body {
     max-width: 100%;
     height: auto;
     border-radius: 16px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 20px 60px var(--color-shadow-heavy);
 }
 
 /* ========================================
@@ -247,14 +267,14 @@ body {
 }
 
 .btn-primary {
-    background: #000000;
-    color: #ffffff;
+    background: var(--color-text);
+    color: var(--color-bg);
 }
 
 .btn-primary:hover {
-    background: #333333;
+    background: var(--color-text-muted);
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px var(--color-shadow-heavy);
 }
 
 .btn-secondary {
@@ -316,7 +336,7 @@ body {
 .service-card:hover {
     transform: translateY(-8px);
     border-color: var(--color-primary);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 40px var(--color-shadow-heavy);
 }
 
 .service-icon {
@@ -389,7 +409,7 @@ body {
 }
 
 .project-card:hover .project-image {
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 15px 40px var(--color-shadow);
 }
 
 .project-card h4 {
@@ -688,6 +708,7 @@ footer {
         left: 0;
         right: 0;
         background: var(--color-bg);
+        border-bottom: 1px solid var(--color-border);
         flex-direction: column;
         padding: 32px 24px;
         gap: 24px;
@@ -789,7 +810,7 @@ footer {
     object-fit: cover;
     object-position: center top;
     border: 4px solid var(--color-border);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 40px var(--color-shadow);
 }
 
 .profile-info h1 {
@@ -912,7 +933,7 @@ footer {
 .book-cover img {
     width: 220px;
     border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 30px var(--color-shadow);
 }
 
 .book-info h3 {
@@ -962,7 +983,7 @@ footer {
 
 .portfolio-gallery img:hover {
     transform: scale(1.02);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 30px var(--color-shadow);
 }
 
 /* Contact Info Grid */
@@ -1029,7 +1050,7 @@ footer {
 
 .team-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 40px var(--color-shadow);
 }
 
 .team-photo {
@@ -1045,7 +1066,7 @@ footer {
     object-fit: cover;
     object-position: center top;
     border: 4px solid var(--color-border);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px var(--color-shadow);
 }
 
 .team-info {
@@ -1251,7 +1272,7 @@ footer {
 }
 
 .penalty-table tbody td:last-child {
-    color: #b91c1c;
+    color: var(--color-danger);
     font-weight: 600;
 }
 
@@ -1278,7 +1299,7 @@ footer {
 
 .compliance-card:hover {
     border-color: var(--color-primary);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 8px 24px var(--color-shadow);
 }
 
 .compliance-card h3 {
@@ -1536,6 +1557,10 @@ footer {
     padding: 80px 24px;
 }
 
+[data-theme="dark"] .why-section {
+    background: #0a0a0a;
+}
+
 .why-header {
     text-align: center;
     margin-bottom: 56px;
@@ -1633,4 +1658,55 @@ footer {
     border-bottom: 3px solid var(--color-accent);
     padding-bottom: 12px;
     margin-bottom: 20px;
+}
+
+/* ========================================
+   THEME TOGGLE
+   ======================================== */
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--color-text-muted);
+    transition: var(--transition);
+    flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+    color: var(--color-text);
+    border-color: var(--color-text-muted);
+}
+
+.theme-toggle svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* ========================================
+   DARK-MODE IMAGE INVERSION
+   SVG logos / marks that are dark-on-transparent
+   ======================================== */
+
+[data-theme="dark"] .brand-mark,
+[data-theme="dark"] .hero-logo {
+    filter: invert(1);
+}
+
+/* ========================================
+   DARK-MODE TRANSITIONS
+   ======================================== */
+
+html {
+    color-scheme: light;
+}
+
+html[data-theme="dark"] {
+    color-scheme: dark;
 }
